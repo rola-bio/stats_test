@@ -11,7 +11,7 @@ import statsmodels.stats.multicomp as sm
 def normal_dist(data,val_col,group_col,result=False):
     """
     data : pd.DataFrame
-    
+
     val_col : str
             The name of columns which you test.
 
@@ -232,9 +232,9 @@ def sign_barplot(df,val_col,group_col,test="HSD"):
     plt.show()
 
 
-def stats_test(df,val_col,group_col,test=False):
+def stats_test(df,val_col,group_col,test=False,result=False):
     #テスト名を指定できる。指定したらすべてのtestが指定した検定に変わる
     if not test:
-        p,test = one_way_ANOVA(df,val_col,group_col)
+        p,test = one_way_ANOVA(df,val_col,group_col,result=result)
     print("This result calculated by {} test.".format(test))
     sign_barplot(df,val_col,group_col,test=test)
